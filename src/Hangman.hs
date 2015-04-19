@@ -23,7 +23,7 @@ playHangman maybeLives (word:words) = do
   playAgain <- playHangmanAgain
   if playAgain
      then playHangman maybeLives words
-     else putStrLn "He's murdering time! Off with his head!"
+     else putStrLn "He's murdering the time! Off with his head!"
 
 playHangmanAgain :: IO Bool
 playHangmanAgain = do
