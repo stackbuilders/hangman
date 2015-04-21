@@ -9,9 +9,9 @@ module Hangman (playHangman) where
 import Data.Maybe (fromMaybe)
 import Prelude hiding (words)
 
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 -- (Impure) hangman games
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 -- | Play hangman games.
 
@@ -44,9 +44,9 @@ playHangmanGame currentGame = do
     Playing _ -> playHangmanGame nextGame
     _         -> print nextGame
 
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 -- (Pure) hangman games
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 -- | A hangman game.
 
@@ -91,16 +91,16 @@ showHangmanGame (HangmanGame Lost   word) =
 showHangmanGame (HangmanGame status word) =
   showHangmanWord word ++ " (" ++ show status ++ ")"
 
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 -- Hangman game statuses
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 -- | A hangman game status.
 
 data HangmanGameStatus
-  = Lost           -- ^
-  | Playing Int    -- ^
-  | Won            -- ^
+  = Lost               -- ^
+  | Playing Int        -- ^
+  | Won                -- ^
   deriving Eq
 
 instance Show HangmanGameStatus where
@@ -109,9 +109,9 @@ instance Show HangmanGameStatus where
   show (Playing lives) = "Are their heads off? Lives: " ++ show lives
   show Won             = "Keep your temper..."
 
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 -- Hangman words
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 -- | A hangman word.
 
@@ -140,8 +140,8 @@ nextHangmanWord word c = match False word []
 
 -- |
 --
--- >>> newHangmanWord "hatter"
--- [('h',False),('a',False),('t',False),('t',False),('e',False),('r',False)]
+-- >>> newHangmanWord "mad"
+-- [('m',False),('a',False),('d',False)]
 --
 -- prop> newHangmanWord word == fmap (\c -> (c,False)) word
 
@@ -150,18 +150,22 @@ newHangmanWord = fmap (\letter -> (letter,False))
 
 -- |
 --
+-- >>> showHangmanWord (newHangmanWord "mad")
+-- "---"
+--
 -- >>> showHangmanWord (newHangmanWord "hatter")
 -- "------"
 --
 -- prop> showHangmanWord (newHangmanWord word) == replicate (length word) '-'
 --
--- >>> showHangmanWord [('h',True),('a',True),('t',True),('t',True),('e',True),('r',True)]
--- "hatter"
+-- >>> showHangmanWord [('m',True),('a',True),('d',True)]
+-- "mad"
 --
 -- prop> showHangmanWord (fmap (\c -> (c,True)) word) == word
 --
--- >>> showHangmanWord [('h',False),('a',True),('t',False),('t',False),('e',True),('r',False)]
--- "-a--e-"
+-- >>> showHangmanWord [('m',False),('a',True),('d',False)]
+-- "-a-"
 
 showHangmanWord :: HangmanWord -> String
-showHangmanWord = fmap (\(letter,guessed) -> if guessed then letter else '-')
+showHangmanWord =
+  fmap (\(letter,guessed) -> if guessed then letter else '-')
