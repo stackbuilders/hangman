@@ -1,6 +1,6 @@
 # Hangman: Off with their heads!
 
-## The game
+## Game
 
 Hangman is “a game for two in which one player tries to guess the
 letters of a word, and failed attempts are recorded by drawing a
@@ -13,24 +13,24 @@ gallows and someone hanging on it, line by line.”
   cabal install --only-dependencies --enable-tests
   ```
 
--
+- TODO
 
   ```
   cabal configure --enable-tests
   cabal run
   ```
 
--
+- TODO
 
   ```
   cabal test
   ```
 
-## The posts
+## Posts
 
 TODO
 
-## The slides
+## Slides
 
 TODO
 
