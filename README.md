@@ -1,20 +1,38 @@
 # Hangman: Off with their heads!
 
-(Optional)
+## The game
 
-```
-cabal sandbox init
-cabal install --only-dependencies --enable-tests
-```
+Hangman is “a game for two in which one player tries to guess the
+letters of a word, and failed attempts are recorded by drawing a
+gallows and someone hanging on it, line by line.”
 
-```
-cabal configure --enable-tests
-cabal run
-```
+- (Optional)
 
-```
-cabal test
-```
+  ```
+  cabal sandbox init
+  cabal install --only-dependencies --enable-tests
+  ```
+
+-
+
+  ```
+  cabal configure --enable-tests
+  cabal run
+  ```
+
+-
+
+  ```
+  cabal test
+  ```
+
+## The posts
+
+TODO
+
+## The slides
+
+TODO
 
 ## Bibliography
 
