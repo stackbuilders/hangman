@@ -15,24 +15,9 @@ import Prelude hiding (words)
 
 -- | Play hangman games.
 
-playHangman :: Maybe Int -> [String] -> IO ()
-playHangman _          []           =
-  putStrLn "Now I can do no more, whatever happens. What will become of me?"
-playHangman maybeLives (word:words) = do
+playHangman :: Maybe Int -> String -> IO ()
+playHangman maybeLives word =
   playHangmanGame (newHangmanGame maybeLives word)
-  playAgain <- playHangmanAgain
-  if playAgain
-     then playHangman maybeLives words
-     else putStrLn "He's murdering the time! Off with his head!"
-
-playHangmanAgain :: IO Bool
-playHangmanAgain = do
-  putStrLn "Let's go on with the game... (yes or no)"
-  yesOrNo <- getLine
-  case yesOrNo of
-    "yes" -> return True
-    "no"  -> return False
-    _     -> playHangmanAgain
 
 playHangmanGame :: HangmanGame -> IO ()
 playHangmanGame currentGame = do
