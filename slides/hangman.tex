@@ -163,55 +163,155 @@ lleksah
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-  Con base en las respuestas de más de 368000 personas:
-
-  El aprendizaje de este lenguaje cambió significativamente la menera
-  en que uso otros lenguajes.
-  \begin{columns}[onlytextwidth,T]
-    \begin{column}{.5\textwidth}
-      \begin{enumerate}
-      \item Haskell
-      \item Scheme
-      \item Coq
-      \item Common Lisp
-      \item Erlang
-      \end{enumerate}
-    \end{column}
-    \begin{column}{.5\textwidth}
-      \begin{enumerate}
-      \setcounter{enumi}{42}
-      \item Fortran
-      \item R
-      \item AWK
-      \item Visual Basic
-      \item Cobol
-      \end{enumerate}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-%%El aprendizaje de este lenguaje mejoró mi habilidad como programador.
-
-%% Learning this language improved my ability as a programmer
-%% (http://hmrp.pl/zdDNYP). 1. Haskell 2. Standard ML 3. Scheme 4.
-%% Coq 5. Common Lisp
-
-
-\begin{frame}
-  Recomendaría a la mayoría de programadores aprender este lenguaje,
-  sin importar si tienen o no una necesidad específica de hacerlo.
-
-  I would recommend most programmers learn this language, regardless
-  of whether they have a specific need for it (http://hmrp.pl/zuMkvG).
-  1. Haskell 2. Coq 3. Agda 4. Clojure 5. Scheme
+  \begin{center}
+    \url{https://github.com/stackbuilders/hangman}
+  \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-  \begin{center}
-    \url{https://github.com/stackbuilders/hangman}
-  \end{center}
+  \begin{itemize}
+  \item
+    Con base en las respuestas de más de 368000 personas:
+    \begin{itemize}
+    \item
+      ``El aprendizaje de este lenguaje cambió significativamente la
+      manera en que uso otros lenguajes''.
+      \begin{columns}[T]
+        \begin{column}{3cm}
+          \begin{enumerate}
+          \item Haskell
+          \item Scheme
+          \item Coq
+          \item Common Lisp
+          \item Erlang
+          \end{enumerate}
+        \end{column}
+        \begin{column}{3cm}
+          \begin{enumerate}
+          \setcounter{enumi}{42}
+          \item Fortran
+          \item R
+          \item AWK
+          \item Visual Basic
+          \item Cobol
+          \end{enumerate}
+        \end{column}
+      \end{columns}
+    \end{itemize}
+  \end{itemize}
+  \begin{thebibliography}{}
+  \setbeamertemplate{bibliography entry title}{}
+  \setbeamertemplate{bibliography item}[online]
+  \bibitem[]{hammerprinciple-1}
+    \newblock \url{http://hammerprinciple.com/therighttool}
+  \end{thebibliography}
+\end{frame}
+
+%% http://hmrp.pl/yOtN9k
+
+\begin{frame}
+  \begin{itemize}
+  \item
+    Con base en las respuestas de más de 368000 personas:
+    \begin{itemize}
+    \item
+      ``El aprendizaje de este lenguaje mejoró mi habilidad como
+      programador''.
+      \begin{columns}[T]
+        \begin{column}{3cm}
+          \begin{enumerate}
+          \item Haskell
+          \item Standard ML
+          \item Scheme
+          \item Coq
+          \item Common Lisp
+          \end{enumerate}
+        \end{column}
+        \begin{column}{3cm}
+          \begin{enumerate}
+          \setcounter{enumi}{44}
+          \item Shell
+          \item Matlab
+          \item PHP
+          \item Visual Basic
+          \item Cobol
+          \end{enumerate}
+        \end{column}
+      \end{columns}
+    \end{itemize}
+  \end{itemize}
+  \begin{thebibliography}{}
+  \setbeamertemplate{bibliography entry title}{}
+  \setbeamertemplate{bibliography item}[online]
+  \bibitem[]{hammerprinciple-2}
+    \newblock \url{http://hammerprinciple.com/therighttool}
+  \end{thebibliography}
+\end{frame}
+
+%% http://hmrp.pl/zdDNYP
+
+\begin{frame}
+  \begin{itemize}
+  \item
+    Con base en las respuestas de más de 368000 personas:
+    \begin{itemize}
+    \item
+      ``Recomendaría a la mayoría de programadores aprender este
+      lenguaje, sin importar si tienen o no una necesidad específica
+      de hacerlo''.
+      \begin{columns}[T]
+        \begin{column}{3cm}
+          \begin{enumerate}
+          \item Haskell
+          \item Scheme
+          \item Coq
+          \item Clojure
+          \item Erlang
+          \end{enumerate}
+        \end{column}
+        \begin{column}{3cm}
+          \begin{enumerate}
+          \setcounter{enumi}{43}
+          \item ActionScript
+          \item Pascal
+          \item Fortran
+          \item Visual Basic
+          \item Cobol
+          \end{enumerate}
+        \end{column}
+      \end{columns}
+    \end{itemize}
+  \end{itemize}
+  \begin{thebibliography}{}
+  \setbeamertemplate{bibliography entry title}{}
+  \setbeamertemplate{bibliography item}[online]
+  \bibitem[]{hammerprinciple-3}
+    \newblock \url{http://hammerprinciple.com/therighttool}
+  \end{thebibliography}
+\end{frame}
+
+%% http://hmrp.pl/zuMkvG
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{itemize}
+  \item
+    \begin{code}
+reverse :: [a] -> [a]
+reverse =  foldl (flip (:)) []
+    \end{code}
+  \item
+    \begin{code}
+reverse :: [a] -> [a]
+reverse l = rev l []
+  where
+    rev []     a = a
+    rev (x:xs) a = rev xs (x:a)
+    \end{code}
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
