@@ -729,7 +729,7 @@ playHangmanGame :: HangmanGame -> IO ()
 
 \begin{frame}[fragile]
   \begin{code}
-main :: IO
+main :: IO ()
 main = do
   ...
   playHangmanGame (HangmanGame ...)
@@ -739,21 +739,30 @@ main = do
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]
+  Gracias al sistema de tipos, distinción clara entre:
+  \begin{itemize}
+  \item |IO| y no |IO|
+  \item Acciones y funciones
+  \item Código impuro y código puro
+  \item Programación imperativa y programación no imperativa
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \begin{itemize}
-  \item
-    Distinción clara entre:
+  \item Programación funcional:
     \begin{itemize}
-    \item Acciones y funciones
-    \item Código impuro y código impuro
-    \item Programación imperativa y programación no imperativa
+    \item Razonamiento ecuacional
+    \item ...
     \end{itemize}
-  \item
-    Razonamiento ecuacional
-  \item
-    Refactoring
-  \item
-    Menos dolores de cabeza
+  \item Programación funcional imperativa:
+    \begin{itemize}
+    \item Menos dolores de cabeza
+    \item ...
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
