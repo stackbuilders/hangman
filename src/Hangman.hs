@@ -44,7 +44,7 @@ instance Show HangmanGame where
   show = showHangmanGame
 
 defaultHangmanGameLives :: Int
-defaultHangmanGameLives = 5
+defaultHangmanGameLives = 6
 
 reduceHangmanGame :: HangmanGame -> String -> HangmanGame
 reduceHangmanGame = foldl nextHangmanGame
