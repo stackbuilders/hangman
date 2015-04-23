@@ -12,6 +12,12 @@ build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
 
+bug-reports: https://github.com/stackbuilders/hangman/issues
+
+source-repository head
+  type: git
+  location: https://github.com/stackbuilders/hangman
+
 executable hangman
   main-is:             Main.hs
   other-modules:       Hangman
