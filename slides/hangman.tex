@@ -677,6 +677,68 @@ lleksah
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]
+  \begin{itemize}
+  \item
+    \begin{code}
+data HangmanGame = HangmanGame
+  { hangmanGameStatus :: HangmanGameStatus
+  , hangmanGameWord   :: HangmanWord
+  }
+    \end{code}
+  \item
+    \begin{code}
+data HangmanGameStatus
+  = Lost
+  | Playing Int
+  | Won
+
+type HangmanWord = [(Char,Bool)]
+    \end{code}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{itemize}
+  \item
+    \begin{code}
+nextHangmanGame :: HangmanGame
+                -> [Char]
+                -> HangmanGame
+    \end{code}
+  \item
+    \begin{code}
+nextHangmanWord :: HangmanWord
+                -> Char
+                -> Maybe HangmanWord
+    \end{code}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{code}
+playHangmanGame :: HangmanGame -> IO ()
+  \end{code}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{code}
+main :: IO
+main = do
+  ...
+  playHangmanGame (HangmanGame ...)
+  ...
+  \end{code}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \begin{itemize}
   \item
