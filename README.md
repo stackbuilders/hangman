@@ -34,6 +34,10 @@ TODO
 
 TODO
 
+## Words
+
+TODO
+
 ## Bibliography
 
 - Bird, Richard (2014). Thinking Functionally with Haskell. Cambridge
