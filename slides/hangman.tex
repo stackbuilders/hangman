@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[spanish]{beamer}
 
 \usetheme{default}
 
@@ -16,9 +16,11 @@
 
 \title{Ahorcado}
 \subtitle{Programación funcional imperativa}
-\author{}
+\author{Juan Pedro Villa Isaza}
 \institute{Stack Builders}
 \date{24 de abril de 2015}
+
+\logo{\includegraphics[height=0.5cm]{stackbuilders.png}}
 
 \begin{document}
 
@@ -29,8 +31,93 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-  \frametitle{}
+  \begin{columns}[onlytextwidth,T]
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.8]{haskell.png}
+      \end{center}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      Haskell es:
+      \begin{itemize}
+      \item<1-> Funcional
+      \item<1-> \emph{Puro}
+      \item<1-> ...
+      \item<2-> \emph{Interesante}
+      \item<3-> ¿\alert{Inútil}?
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{itemize}
+  \item
+    \begin{code}
+reverse :: [a] -> [a]
+reverse = ...
+    \end{code}
+  \item
+    \begin{code}
+> reverse "haskell"
+"lleksah"
+    \end{code}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{itemize}
+  \item
+    \begin{code}
+main :: IO ()
+main = putStrLn (reverse "haskell")
+    \end{code}
+  \item
+    \begin{code}
+> main
+lleksah
+    \end{code}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{itemize}
+  \item
+    \begin{code}
+main :: IO ()
+main = do
+  line <- getLine
+  putStrLn (reverse line)
+    \end{code}
+  \item
+    \begin{code}
+> main
+haskell
+lleksah
+    \end{code}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \begin{center}
+    |type IO a = Mundo -> (a,Mundo)|
+  \end{center}
+  \begin{center}
+    \includegraphics[scale=0.3]{hatter}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
   \begin{quote}
     Haskell es el mejor lenguaje de programación imperativa del mundo.
   \end{quote}
@@ -39,34 +126,92 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]
-  \frametitle{}
+\begin{frame}
+  \frametitle{Ahorcado}
 
-  \begin{code}
-type IO a = World -> (a,World)
-  \end{code}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]
-
-  \begin{code}
-main :: IO ()
-main = putStrLn ""
-  \end{code}
+\begin{frame}
+  \begin{itemize}
+  \item
+    Distinción clara entre:
+    \begin{itemize}
+    \item Acciones y funciones
+    \item Código impuro y código impuro
+    \item Programación imperativa y programación no imperativa
+    \end{itemize}
+  \item
+    Razonamiento ecuacional
+  \item
+    Refactoring
+  \item
+    Menos dolores de cabeza
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]
+\begin{frame}
+  \begin{quote}
+    Haskell es el mejor lenguaje de programación imperativa del mundo.
+  \end{quote}
+  \hfill---Simon Peyton Jones
+\end{frame}
 
-  \begin{code}
-echoLine :: IO ()
-echoLine = do
-  line <- getLine
-  putStrLn line
-  \end{code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  Con base en las respuestas de más de 368000 personas:
+
+  El aprendizaje de este lenguaje cambió significativamente la menera
+  en que uso otros lenguajes.
+  \begin{columns}[onlytextwidth,T]
+    \begin{column}{.5\textwidth}
+      \begin{enumerate}
+      \item Haskell
+      \item Scheme
+      \item Coq
+      \item Common Lisp
+      \item Erlang
+      \end{enumerate}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{enumerate}
+      \setcounter{enumi}{42}
+      \item Fortran
+      \item R
+      \item AWK
+      \item Visual Basic
+      \item Cobol
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%%El aprendizaje de este lenguaje mejoró mi habilidad como programador.
+
+%% Learning this language improved my ability as a programmer
+%% (http://hmrp.pl/zdDNYP). 1. Haskell 2. Standard ML 3. Scheme 4.
+%% Coq 5. Common Lisp
+
+
+\begin{frame}
+  Recomendaría a la mayoría de programadores aprender este lenguaje,
+  sin importar si tienen o no una necesidad específica de hacerlo.
+
+  I would recommend most programmers learn this language, regardless
+  of whether they have a specific need for it (http://hmrp.pl/zuMkvG).
+  1. Haskell 2. Coq 3. Agda 4. Clojure 5. Scheme
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \url{https://github.com/stackbuilders/hangman}
+  \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
