@@ -46,7 +46,14 @@ TODO
 - Contorer, Aaron (2013). Haskell, the Language Most Likely to Change
   the Way You Think About Programming.
 
+- Lipovača, Miran (2011). Learn You a Haskell for Great Good! No
+  Starch Press.
+
 - Marlow, Simon, ed. (2010). Haskell 2010 Language Report.
+
+- Marlow, Simon and Simon Peyton Jones (2012). The Glasgow Haskell
+  Compiler. In: The Architecture of Open Source Applications (Volume
+  II).
 
 - O'Sullivan, Bryan, John Goerzen, and Don Stewart (2008). Real World
   Haskell. O'Reilly Media.
