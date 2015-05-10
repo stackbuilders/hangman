@@ -1,5 +1,7 @@
 # Hangman: Off with their heads!
 
+[![Build Status][build-status-image]][build-status]
+
 ## Game
 
 Hangman is “a game for two in which one player tries to guess the
@@ -64,3 +66,6 @@ TODO
   2013).
 
 - Webster's Dictionary (1913).
+
+[build-status]: https://travis-ci.org/stackbuilders/hangman
+[build-status-image]: https://travis-ci.org/stackbuilders/hangman.svg?branch=master
