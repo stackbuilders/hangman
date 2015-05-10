@@ -4,7 +4,7 @@
 -- word, and failed attempts are recorded by drawing a gallows and
 -- someone hanging on it, line by line.
 
-module Hangman (playHangman) where
+module Hangman where
 
 import Data.Maybe (fromMaybe)
 import Prelude hiding (words)
@@ -24,7 +24,7 @@ playHangmanGame currentGame = do
   print currentGame
   putStr "Have you guessed the riddle yet? "
   letters <- getLine
-  let nextGame = reduceHangmanGame currentGame letters
+  let nextGame = nextHangmanGame currentGame letters
   case hangmanGameStatus nextGame of
     Playing _ -> playHangmanGame nextGame
     _         -> print nextGame
@@ -46,11 +46,11 @@ instance Show HangmanGame where
 defaultHangmanGameLives :: Int
 defaultHangmanGameLives = 6
 
-reduceHangmanGame :: HangmanGame -> String -> HangmanGame
-reduceHangmanGame = foldl nextHangmanGame
+nextHangmanGame :: HangmanGame -> [Char] -> HangmanGame
+nextHangmanGame = foldl nextHangmanGame'
 
-nextHangmanGame :: HangmanGame -> Char -> HangmanGame
-nextHangmanGame currentGame@(HangmanGame status word) letter =
+nextHangmanGame' :: HangmanGame -> Char -> HangmanGame
+nextHangmanGame' currentGame@(HangmanGame status word) letter =
   case nextHangmanWord word letter of
     Nothing ->
       currentGame
