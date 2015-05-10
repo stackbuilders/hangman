@@ -27,7 +27,7 @@ library
 
 executable hangman-off
   main-is:             Main.hs
-  build-depends:       base >=4.7 && <4.9, hangman-off, QuickCheck
+  build-depends:       base, hangman-off, QuickCheck
   hs-source-dirs:      src
   default-language:    Haskell2010
   ghc-options:         -Wall
