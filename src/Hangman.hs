@@ -1,10 +1,24 @@
--- |
---
--- A game for two in which one player tries to guess the letters of a
--- word, and failed attempts are recorded by drawing a gallows and
--- someone hanging on it, line by line.
+-- | TODO.
 
-module Hangman where
+module Hangman
+  (-- * Sd
+   -- ** Hangman games
+   HangmanGame(..)
+  ,defaultHangmanGameLives
+  ,newHangmanGame
+   -- ** Hangman statuses
+  ,HangmanGameStatus(..)
+   -- ** Hangman words
+  ,HangmanWord
+  ,newHangmanWord
+   -- * Sd
+  ,nextHangmanGame
+  ,nextHangmanWord
+  ,showHangmanWord
+   -- * Sd
+  ,playHangman
+  ,playHangmanGame)
+  where
 
 import Data.Maybe (fromMaybe)
 
@@ -17,6 +31,8 @@ import Data.Maybe (fromMaybe)
 playHangman :: Maybe Int -> String -> IO ()
 playHangman maybeLives word =
   playHangmanGame (newHangmanGame maybeLives word)
+
+-- | TODO.
 
 playHangmanGame :: HangmanGame -> IO ()
 playHangmanGame currentGame = do
@@ -42,10 +58,17 @@ data HangmanGame = HangmanGame
 instance Show HangmanGame where
   show = showHangmanGame
 
+-- | TODO.
+
 defaultHangmanGameLives :: Int
 defaultHangmanGameLives = 6
 
-nextHangmanGame :: HangmanGame -> [Char] -> HangmanGame
+-- | TODO.
+
+nextHangmanGame
+  :: HangmanGame -- ^ TODO
+  -> [Char]      -- ^ TODO
+  -> HangmanGame -- ^ TODO
 nextHangmanGame = foldl nextHangmanGame'
 
 nextHangmanGame' :: HangmanGame -> Char -> HangmanGame
@@ -62,10 +85,17 @@ nextHangmanGame' game@(HangmanGame status word) letter =
            ,hangmanGameStatus =
              if any not (map snd nextWord) then status else Won}
 
-newHangmanGame :: Maybe Int -> String -> HangmanGame
+-- | TODO
+
+newHangmanGame
+  :: Maybe Int   -- ^ TODO
+  -> String      -- ^ TODO
+  -> HangmanGame -- ^ TODO
 newHangmanGame maybeLives word =
   HangmanGame (Playing (fromMaybe defaultHangmanGameLives maybeLives))
               (newHangmanWord word)
+
+-- | TODO
 
 showHangmanGame :: HangmanGame -> String
 showHangmanGame (HangmanGame Lost   word) =
@@ -80,15 +110,21 @@ showHangmanGame (HangmanGame status word) =
 -- | A hangman game status.
 
 data HangmanGameStatus
-  = Lost               -- ^
-  | Playing Int        -- ^
-  | Won                -- ^
+  = Lost               -- ^ TODO
+  | Playing Int        -- ^ TODO
+  | Won                -- ^ TODO
 
 instance Show HangmanGameStatus where
-  show Lost            = "Off with their heads!"
-  show (Playing 1)     = "I'll fetch the executioner myself... Lives: 1"
-  show (Playing lives) = "Are their heads off? Lives: " ++ show lives
-  show Won             = "Keep your temper..."
+  show = showHangmanGameStatus
+
+showHangmanGameStatus :: HangmanGameStatus -> String
+showHangmanGameStatus Lost            = "Off with their heads!"
+showHangmanGameStatus (Playing 1)     =
+  "I'll fetch the executioner myself... Lives: 1"
+showHangmanGameStatus (Playing lives) =
+  "Are their heads off? Lives: " ++ show lives
+showHangmanGameStatus Won             =
+  "Keep your temper..."
 
 ----------------------------------------------------------------------
 -- Hangman words
@@ -110,9 +146,9 @@ type HangmanWord = [(Char,Bool)]
 -- Just [('m',False),('a',True),('d',False)]
 
 nextHangmanWord
-  :: HangmanWord       -- ^
-  -> Char              -- ^
-  -> Maybe HangmanWord -- ^
+  :: HangmanWord       -- ^ TODO
+  -> Char              -- ^ TODO
+  -> Maybe HangmanWord -- ^ TODO
 nextHangmanWord = flip matchLetterInHangmanWord
 
 matchLetterInHangmanWord :: Char -> HangmanWord -> Maybe HangmanWord
