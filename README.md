@@ -8,11 +8,16 @@ Hangman is “a game for two in which one player tries to guess the
 letters of a word, and failed attempts are recorded by drawing a
 gallows and someone hanging on it, line by line.”
 
-- (Optional)
+- Install the dependencies
 
   ```
   cabal sandbox init
   cabal install --only-dependencies --enable-tests
+  ```
+
+  ```
+  cabal install doctest
+  cabal install hspec
   ```
 
 - TODO
@@ -22,10 +27,18 @@ gallows and someone hanging on it, line by line.”
   cabal run
   ```
 
-- TODO
+- Run all tests in the test suites
 
   ```
   cabal test
+  ```
+
+  ```
+  cabal test doctests
+  ```
+
+  ```
+  cabal test hspecs
   ```
 
 ## Posts
@@ -33,6 +46,10 @@ gallows and someone hanging on it, line by line.”
 TODO
 
 ## Slides
+
+TODO
+
+## Tutorial
 
 TODO
 
