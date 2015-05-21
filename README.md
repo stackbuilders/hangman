@@ -67,5 +67,5 @@ TODO
 
 - Webster's Dictionary (1913).
 
-[build-status]: https://travis-ci.org/stackbuilders/hangman
-[build-status-image]: https://travis-ci.org/stackbuilders/hangman.svg?branch=master
+[build-status]: https://travis-ci.org/stackbuilders/hangman-off
+[build-status-image]: https://travis-ci.org/stackbuilders/hangman-off.svg?branch=master
