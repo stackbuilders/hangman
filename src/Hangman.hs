@@ -7,7 +7,6 @@
 module Hangman where
 
 import Data.Maybe (fromMaybe)
-import Prelude hiding (words)
 
 ----------------------------------------------------------------------
 -- (Impure) hangman games
@@ -50,20 +49,18 @@ nextHangmanGame :: HangmanGame -> [Char] -> HangmanGame
 nextHangmanGame = foldl nextHangmanGame'
 
 nextHangmanGame' :: HangmanGame -> Char -> HangmanGame
-nextHangmanGame' currentGame@(HangmanGame status word) letter =
+nextHangmanGame' game@(HangmanGame status word) letter =
   case nextHangmanWord word letter of
     Nothing ->
-      currentGame
-        {hangmanGameStatus =
-           case status of
-             Playing 1     -> Lost
-             Playing lives -> Playing (lives - 1)
-             otherStatus   -> otherStatus}
+      game {hangmanGameStatus =
+               case status of
+                 Playing 1     -> Lost
+                 Playing lives -> Playing (lives - 1)
+                 otherStatus   -> otherStatus}
     Just nextWord ->
-      currentGame
-        {hangmanGameWord = nextWord
-        ,hangmanGameStatus =
-           if any not (map snd nextWord) then status else Won}
+      game {hangmanGameWord   = nextWord
+           ,hangmanGameStatus =
+             if any not (map snd nextWord) then status else Won}
 
 newHangmanGame :: Maybe Int -> String -> HangmanGame
 newHangmanGame maybeLives word =
@@ -86,7 +83,6 @@ data HangmanGameStatus
   = Lost               -- ^
   | Playing Int        -- ^
   | Won                -- ^
-  deriving Eq
 
 instance Show HangmanGameStatus where
   show Lost            = "Off with their heads!"
@@ -113,15 +109,29 @@ type HangmanWord = [(Char,Bool)]
 -- >>> nextHangmanWord [('m',False),('a',True),('d',False)] 'a'
 -- Just [('m',False),('a',True),('d',False)]
 
-nextHangmanWord :: HangmanWord -> Char -> Maybe HangmanWord
-nextHangmanWord word c = match False word []
-  where
-    match :: Bool -> HangmanWord -> HangmanWord -> Maybe HangmanWord
-    match b [] nextWord = if b then Just (reverse nextWord) else Nothing
-    match b ((sd,b'):rest) hw =
-      if sd == c
-         then match True rest ((sd,True):hw)
-         else match b    rest ((sd,b'):hw)
+nextHangmanWord
+  :: HangmanWord       -- ^
+  -> Char              -- ^
+  -> Maybe HangmanWord -- ^
+nextHangmanWord = flip matchLetterInHangmanWord
+
+matchLetterInHangmanWord :: Char -> HangmanWord -> Maybe HangmanWord
+matchLetterInHangmanWord letter word =
+  matchHangmanWord' letter word False []
+
+matchHangmanWord'
+  :: Char              -- ^
+  -> HangmanWord       -- ^
+  -> Bool              -- ^
+  -> HangmanWord       -- ^
+  -> Maybe HangmanWord -- ^
+
+matchHangmanWord' _      [] False  _           = Nothing
+matchHangmanWord' _      [] True   matchedWord = Just (reverse matchedWord)
+matchHangmanWord' letter ((l,guessed):ls) matched matchedWord =
+  if l == letter
+     then matchHangmanWord' letter ls True    ((l,True):matchedWord)
+     else matchHangmanWord' letter ls matched ((l,guessed):matchedWord)
 
 -- |
 --
