@@ -2,8 +2,8 @@ name:                hangman-off
 version:             0.1.0
 synopsis:            Hangman: Off with their heads!
 description:         Hangman: Off with their heads!
--- license:
--- license-file:        LICENSE
+license:             BSD3
+license-file:        LICENSE
 author:              Juan Pedro Villa Isaza
 maintainer:          jpvillaisaza@gmail.com
 -- copyright:
