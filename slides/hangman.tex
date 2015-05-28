@@ -18,7 +18,7 @@
 \subtitle{Programación funcional imperativa}
 \author{Juan Pedro Villa Isaza}
 \institute{Stack Builders}
-\date{24 de abril de 2015}
+\date{1 de junio de 2015}
 
 \logo{\includegraphics[height=0.5cm]{stackbuilders.png}}
 
@@ -40,11 +40,14 @@
     \begin{column}{.5\textwidth}
       Haskell es:
       \begin{itemize}
-      \item<1-> Funcional
-      \item<1-> \emph{Puro}
+      \item Funcional
+      \item \emph{Puro}
+        \begin{itemize}
+        \item Inmutabilidad
+        \item Sin efectos secundarios
+        \item Transparencia referencial
+        \end{itemize}
       \item<1-> ...
-      \item<2-> \emph{Interesante}
-      \item<3-> ¿\alert{Inútil}?
       \end{itemize}
     \end{column}
   \end{columns}
@@ -57,7 +60,8 @@
   \item
     \begin{code}
 reverse :: [a] -> [a]
-reverse = ...
+reverse []     = []
+reverse (x:xs) = reverse xs ++ [x]
     \end{code}
   \item
     \begin{code}
@@ -65,6 +69,25 @@ reverse = ...
 "lleksah"
     \end{code}
   \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{columns}[onlytextwidth,T]
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.8]{haskell.png}
+      \end{center}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      Haskell es:
+      \begin{itemize}
+      \item<1-> \emph{Interesante}
+      \item<2-> ¿\alert{Inútil}?
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -741,7 +764,7 @@ main = do
 
 \begin{frame}
   \begin{center}
-    \url{https://github.com/stackbuilders/hangman}
+    \url{https://github.com/stackbuilders/hangman-off}
   \end{center}
 \end{frame}
 
@@ -786,7 +809,7 @@ main = do
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-  Según las respuestas de más de 368000 personas:
+  Según las respuestas de más de 370000 personas:
   \begin{itemize}
   \item
     ``El aprendizaje de este lenguaje mejoró mi habilidad como
@@ -824,7 +847,7 @@ main = do
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-  Según las respuestas de más de 368000 personas:
+  Según las respuestas de más de 370000 personas:
   \begin{itemize}
   \item
     ``Recomendaría a la mayoría de programadores aprender este
@@ -863,7 +886,7 @@ main = do
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-  Según las respuestas de más de 368000 personas:
+  Según las respuestas de más de 370000 personas:
   \begin{itemize}
   \item
     ``El aprendizaje de este lenguaje cambió significativamente la
@@ -896,26 +919,6 @@ main = do
   \bibitem{hammerprinciple-3}
     \newblock \url{http://hmrp.pl/yOtN9k}
   \end{thebibliography}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-  \begin{itemize}
-  \item
-    \begin{code}
-reverse :: [a] -> [a]
-reverse =  foldl (flip (:)) []
-    \end{code}
-  \item
-    \begin{code}
-reverse :: [a] -> [a]
-reverse l = rev l []
-  where
-    rev []     a = a
-    rev (x:xs) a = rev xs (x:a)
-    \end{code}
-  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
