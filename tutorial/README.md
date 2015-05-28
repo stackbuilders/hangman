@@ -37,6 +37,7 @@ ghci> ['h','a','s','k','e','l','l']
 ```
 
 ```haskell
+ghci> :type reverse
 reverse :: [a] -> [a]
 ```
 
@@ -59,6 +60,11 @@ reverse (x:xs) = reverse xs ++ [x]
 ```
 ghci> :type putStrLn
 putStrLn :: String -> IO ()
+```
+
+```
+ghci> putStrLn (reverse "haskell")
+lleksah
 ```
 
 ```haskell
@@ -85,15 +91,21 @@ type IO a = World -> (a,World)
 ## Hangman
 
 ```haskell
-data HangmanGame = ...
+data HangmanGame = HangmanGame
+  { hangmanGameStatus :: HangmanGameStatus
+  , hangmanGameWord   :: HangmanWord
+  }
 ```
 
 ```haskell
-data HangmanGameStatus = ...
+data HangmanGameStatus
+  = Lost
+  | Playing Int
+  | Won
 ```
 
 ```haskell
-type HangmanWord = ...
+type HangmanWord = [(Char,Bool)]
 ```
 
 ```haskell
@@ -119,7 +131,10 @@ playHangmanGame = ...
 
 ```haskell
 main :: IO ()
-main = undefined
+main = do
+  ...
+  playHangmanGame (HangmanGame ...)
+  ...
 ```
 
 ## Conclusion
