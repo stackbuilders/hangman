@@ -35,11 +35,11 @@ playHangman maybeLives word =
 -- | TODO.
 
 playHangmanGame :: HangmanGame -> IO ()
-playHangmanGame currentGame = do
-  print currentGame
+playHangmanGame game = do
+  print game
   putStr "Have you guessed the riddle yet? "
   letters <- getLine
-  let nextGame = nextHangmanGame currentGame letters
+  let nextGame = nextHangmanGame game letters
   case hangmanGameStatus nextGame of
     Playing _ -> playHangmanGame nextGame
     _         -> print nextGame
