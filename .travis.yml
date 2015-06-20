@@ -8,4 +8,5 @@ install:
 script:
   - cabal configure --enable-tests
   - cabal build
-  - cabal test
+  - cabal test doctests
+  - cabal test hspecs
